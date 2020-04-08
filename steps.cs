@@ -21,26 +21,26 @@ namespace SpecFlowDemo.Steps
         public void GivenUserIsAtTheHomePage()
         {
             driver = new FirefoxDriver();
-            driver.Url = "http://www.ubs.com";
+            driver.Url = "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=searchResults&SearchType=linkquery&LinkID=6017#keyWordSearch=&locationSearch=";
         }
  
         [Given(@"Navigate to LogIn Page")]
         public void GivenNavigateToLogInPage()
         {
-            driver.FindElement(By.XPath(".//*[@id='account']/a")).Click();
+            driver.FindElement(By.XPath("/html/body/div[2]/div[2]/div[1]/div[3]/div/div[2]/a[7]/span")).Click();
         }
  
         [When(@"User enter (.*) and (.*)")]
         public void WhenUserEnterAnd(string username, string password)
         {
-            driver.FindElement(By.Id("log")).SendKeys(username);
-            driver.FindElement(By.Id("pwd")).SendKeys(password);
+            driver.FindElement(By.Id("loginFieldMobile")).SendKeys(username);
+            driver.FindElement(By.Id("passwordMobile")).SendKeys(password);
         }
  
         [When(@"Click on the LogIn button")]
         public void WhenClickOnTheLogInButton()
         {
-            driver.FindElement(By.Id("login")).Click();
+            driver.FindElement(By.XPath("/html/body/div[2]/div[2]/div[1]/div[6]/div[5]/div[2]/div[2]/div[2]/div/div/form/button/span[1]")).Click();
         }
  
         [When(@"User LogOut from the Application")]
